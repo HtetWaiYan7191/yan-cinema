@@ -1,0 +1,25 @@
+.active {
+    color: red;
+}
+
+.navbar-list a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar-list a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 2px; /* Adjust the height as needed */
+    width: 100%;
+    background: red;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transition: transform 0.1s linear;
+  }
+  
+  .navbar-list a:hover::before {
+    transform: scaleX(1);
+  }
