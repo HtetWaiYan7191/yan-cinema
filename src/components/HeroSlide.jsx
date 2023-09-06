@@ -3,7 +3,7 @@ import '../styles/HeroSlide.css'
 
 const HeroSlide = () => {
   return (
-    <section className='hero-slide-section h-[100vh]'>
+    <section className='hero-slide-section'>
         <div className='hero-slide-container relative'>
            <img src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" className='w-[100%] h-[90vh] object-cover' alt="" />
         </div>

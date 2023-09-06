@@ -5,7 +5,7 @@ import '../styles/Navbar.css'
 
 const Navbar = () => {
   return (
-    <section className='navbar-section flex justify-center bg-transparent text-white fixed z-10  w-[100%] top-0'>
+    <section className='navbar-section flex justify-center bg-transparent fixed top-0 left-0 text-white z-10  w-[100%] backdrop-blur-sm'>
       <div className='navbaar-container flex items-center justify-between w-[80%] py-5'>
         <h2 className='text-3xl text-red-600 font-semibold'>Yan Cinema</h2>
         <ul className='navbar-list flex'>
