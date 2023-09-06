@@ -1,9 +1,10 @@
 import React from 'react'
+import HeroSlide from '../components/HeroSlide'
 
 const Home = () => {
   return (
-    <section className='home-wrapper py-32' id='home-section'>
-      <h2 className=' text-red-500 text-2xl text-center'>Home</h2>
+    <section className='home-wrapper bg-black' id='home-section'>
+      <HeroSlide/>
     </section>
   )
 }

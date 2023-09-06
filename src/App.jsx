@@ -5,6 +5,7 @@ import Detail from './pages/Detail'
 import Search from './pages/Search'
 import Movies from './pages/Movies'
 import Series from './pages/Series'
+import './styles/App.css'
 
 const App = () => {
   return (
