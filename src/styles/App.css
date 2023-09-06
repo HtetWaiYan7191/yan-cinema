@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: white;
+}
+
+.base-button {
+    border: 1px solid whitesmoke;
+    border-radius: 20px;
+    padding:5px 20px;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.base-button:hover {
+    background-color: red;
+    border-color: red;
+}
