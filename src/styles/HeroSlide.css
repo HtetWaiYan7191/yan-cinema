@@ -1,0 +1,6 @@
+.hero-slide-info {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -40%);
+}
