@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-
-
-const MovieList = () => {
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import '../styles/MovieList.css';
+const MovieList = ({movies}) => {
     
   return (
     <div className="movielist-container mt-10 h-[50vh] w-[80%] mx-auto  ">
         <h2 className='text-4xl mb-10 '>Movie List</h2>
         <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={25}
+      slidesPerView={6}
+      navigation
+      scrollbar={{ draggable: true }}
+
+      // onSlideChange={}
+      // onSwiper={}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>    
+      {
+        movies.map((movie) => (
+          <SwiperSlide key={movie.id}>
+            <img src={movie.image.medium} alt="" className="rounded-lg overflow-hidden w-[100%] object-cover" />
+          </SwiperSlide>
+        ))
+      }
+        
     </Swiper>
     </div>
 
