@@ -3,7 +3,8 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 const initialState = {
     loading : false,
     error : false,
-    value: []
+    value: [],
+    categories: [],
 }
 const MOVIEAPI = 'https://api.tvmaze.com/show';
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
@@ -34,7 +35,14 @@ const movieSlice = createSlice({
                 language: movie.language,
             }));
             state.error = "";
-        })
+            const genreSet = new Set();
+            state.value.forEach((movie) => {
+                movie.category.forEach((category) => {
+                    genreSet.add(category)
+                });
+            });
+            state.categories = [...genreSet];
+        });
     }
     
 })
