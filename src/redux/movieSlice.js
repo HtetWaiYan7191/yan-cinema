@@ -13,6 +13,7 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
         throw new Error("Fail to fetch movies")
     }
     const data = await response.json();
+    console.log(data)
     return data;
 })
 
@@ -22,7 +23,16 @@ const movieSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchMovies.fulfilled, (state, action) => {
             state.loading = false;
-            state.value = action.payload;
+            state.value = action.payload.map((movie) => ({
+                id: movie.id,
+                name: movie.name,
+                category: movie.genres,
+                summary: movie.summary,
+                image: movie.image,
+                rating: movie.rating,
+                official: movie.rating,
+                language: movie.language,
+            }));
             state.error = "";
         })
     }
