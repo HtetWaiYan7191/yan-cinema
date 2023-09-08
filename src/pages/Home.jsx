@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import HeroSlide from '../components/HeroSlide'
 import MovieList from '../components/MovieList'
+import Trending from '../components/Trending'
 import {useSelector, useDispatch} from 'react-redux'
 import { fetchMovies } from '../redux/movieSlice'
 
@@ -18,6 +19,7 @@ const Home = () => {
     <section className='home-wrapper bg-black' id='home-section'>
       <HeroSlide/>
       <MovieList movies = {movies}/>
+      <Trending/>
     </section>
   )
 }

@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store = {store}>
-      <Navbar/>
+      
       <App />
     </Provider>
   </BrowserRouter>
