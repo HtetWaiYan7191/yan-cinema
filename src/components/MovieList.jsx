@@ -11,12 +11,12 @@ import '../styles/MovieList.css';
 const MovieList = ({movies}) => {
     
   return (
-    <div className="movielist-container mt-10 h-[50vh] w-[80%] mx-auto  ">
-        <h2 className='text-4xl mb-10 '>Movie List</h2>
+    <div className="movielist-container mt-10 h-[50vh] w-[80%] mx-auto absolute top-[65%] left-[10%] bg-transparent  ">
+        <h2 className='text-white text-3xl font-semibold mb-6'>Movie List</h2>
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={25}
-      slidesPerView={6}
+      slidesPerView={7}
       navigation
       scrollbar={{ draggable: true }}
 
@@ -26,7 +26,9 @@ const MovieList = ({movies}) => {
       {
         movies.map((movie) => (
           <SwiperSlide key={movie.id}>
-            <img src={movie.image.medium} alt="" className="rounded-lg overflow-hidden w-[100%] object-cover" />
+            <figure className=" overflow-hidden w-[100%]">
+              <img src={movie.image.medium} alt="" className="rounded-lg overflow-hidden w-[100%]  object-cover" />
+            </figure>
           </SwiperSlide>
         ))
       }
