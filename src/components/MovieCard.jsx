@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 import '../styles/MovieList.css';
 
 const MovieCard = ({ category, movies }) => {
-console.log(movies)
   return (
     <div className="movie-card w-[80%] h-[50vh] mx-auto">
       <h2 className="text-white text-3xl font-semibold mb-6">{category}</h2>
