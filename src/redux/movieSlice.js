@@ -31,6 +31,7 @@ const movieSlice = createSlice({
                 rating: movie.rating,
                 official: movie.rating,
                 language: movie.language,
+                favorite: false,
             }));
             state.error = "";
             const genreSet = new Set();
