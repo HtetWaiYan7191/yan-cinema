@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from "react-router-dom";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -21,6 +22,7 @@ const MovieCard = ({ category, movies }) => {
        scrollbar={{ draggable: true }}>
       {movies.map((movie) => (
         <SwiperSlide key={movie.id}>
+          <Link to={`/detail/${movie.id}`}>
           <figure className=" overflow-hidden w-[100%]">
             <img
               src={movie.image.medium}
@@ -28,6 +30,7 @@ const MovieCard = ({ category, movies }) => {
               className="rounded-lg overflow-hidden w-[100%]  object-cover"
             />
           </figure>
+          </Link>
         </SwiperSlide>
       ))}
          </Swiper>
