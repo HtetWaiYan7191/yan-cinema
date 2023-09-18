@@ -5,14 +5,17 @@ import { fetchDetailMovie, fetchDetailSeason } from "../redux/detailSlice";
 import Episodes from "../components/Episodes";
 import Casts from "../components/Casts";
 import "../styles/Detail.css";
+import { fetchCasts } from "../redux/castSlice";
 
 const Detail = () => {
   const { id } = useParams();
   const [showMore, setShowMore] = useState(false);
   const [showCast, setShowCast] = useState(false);
-  const [episodes, setEpisodes] = useState("");
   const detailMovie = useSelector((state) => state.detail.value);
   const detailSeason = useSelector((state) => state.detail.seasons);
+  const detailCasts = useSelector((state) => state.cast.casts);
+  const defaultEpisode = detailSeason.filter((season) => season.number === 1 )
+  const [episodes, setEpisodes] = useState(defaultEpisode.episodes);
   const dispatch = useDispatch();
   useEffect(() => {
     if (
@@ -22,6 +25,7 @@ const Detail = () => {
       // Fetch detailMovie only if it's not already available or is an empty object
       dispatch(fetchDetailMovie(id));
       dispatch(fetchDetailSeason(id));
+      dispatch(fetchCasts(id));
     }
   }, [detailMovie, dispatch]);
 
@@ -38,7 +42,6 @@ const Detail = () => {
 
   const handleCast = () => {
     setShowCast(!showCast);
-    setEpisodes("Casts");
   };
   return (
     <section className="detail-section h-[100vh] bg-black">
@@ -96,29 +99,29 @@ const Detail = () => {
           <h2 className="text-4xl text-red-500">Loading...</h2>
         )}
       </div>
-      <div className="w-[80%] mx-auto">
-        <div className="detail-seasonn-container mt-20  w-[80%]  flex items-center justify-between">
+      <div className="w-[100%] mx-auto">
+        <div className="detail-seasonn-container mt-20  w-[80%] mx-auto  flex justify-between">
           {detailSeason.length !== 0 && (
-            <ul>
+            <ul className="w-[70%]">
               {detailSeason.map((season, index) => (
                 <button
-                  className={`p-4 me-4 hover:border-b`}
+                  className={`p-4 me-4 hover:border-b-2 border-b-red-500`}
                   key={season.id}
                   onClick={() => handleEpisode(season.number)}
                 >{`Season ${index + 1}`}</button>
               ))}
             </ul>
           )}
-          <div className="cast-container">
+          <div className="cast-container w-[20%]">
             <button
               onClick={() => handleCast()}
-              className={`p-4 ${showCast ? "border-b" : ``}`}
+              className={`p-4 ${showCast ? "border-b-2 border-b-red-500" : ``}`}
             >
               Cast & Crew
             </button>
           </div>
         </div>
-        {showCast ? <Casts></Casts> : <Episodes episodes={episodes}></Episodes>}
+        {showCast ? <Casts casts={detailCasts}></Casts> : <Episodes episodes={episodes}></Episodes>}
 
       </div>
 
