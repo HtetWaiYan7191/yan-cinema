@@ -7,7 +7,7 @@ const initialState = {
     seasons: [],
 }
 
-const BASEAPI = ' https://api.tvmaze.com/shows'
+const BASEAPI = 'https://api.tvmaze.com/shows'
 export const fetchDetailMovie = createAsyncThunk('detail/fetchDetailMovie', async (id) => {
     const response = await fetch(`${BASEAPI}/${id}`)
     if(!response.ok) {
