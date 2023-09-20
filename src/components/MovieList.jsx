@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import '../styles/MovieList.css';
 const MovieList = ({movies}) => {
   return (
-    <div className="movielist-container mt-10 h-[50vh] w-[80%] mx-auto absolute top-[65%] left-[10%] bg-transparent  ">
+    <div className="movielist-container mt-10 h-[50vh] w-[80%] mx-auto absolute top-[65%] left-[10%] bg-transparent ">
         <h2 className='text-white text-3xl font-semibold mb-6'>Movie List</h2>
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}

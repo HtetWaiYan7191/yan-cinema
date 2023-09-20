@@ -19,6 +19,25 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
 const movieSlice = createSlice({
     name: 'movie',
     initialState,
+    reducers:{
+        setFavorite: (state, action) => {
+            console.log(action.payload)
+            const newState = state.value.map((movie) => {
+                if(movie.id !== action.payload) return movie
+                return ({...movie, favorite: true})
+            });
+            state.value = newState;
+        },
+
+        removeFavorite: (state, action) => {
+            console.log(action.payload)
+            const newState = state.value.map((movie) => {
+                if(movie.id !== action.payload) return movie
+                return ({...movie, favorite: false})
+            })
+            state.value = newState;
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchMovies.fulfilled, (state, action) => {
             state.loading = false;
@@ -47,3 +66,4 @@ const movieSlice = createSlice({
 })
 
 export default movieSlice.reducer
+export const {setFavorite, removeFavorite} = movieSlice.actions;
