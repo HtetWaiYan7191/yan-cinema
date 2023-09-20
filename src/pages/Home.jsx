@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { fetchMovies } from '../redux/movieSlice'
 import { fetchTrending } from '../redux/trendingSlice'
 import MovieContainer from '../components/MovieContainer'
+import Loading from '../components/Loading'
 
 const Home = () => {
   const movies = useSelector((state) => state.movie.value);
@@ -34,9 +35,17 @@ const Home = () => {
 
   return (
     <section className='home-wrapper bg-black' id='home-section'>
-      <HeroSlide/>
-      <MovieList movies = {movies}/>
-      <MovieContainer categories={categories} filterObject={filterObject}/>
+      {movies.length === 0 ? (
+        <Loading/>
+      ) : (
+        <>
+        <HeroSlide/>
+        <MovieList movies = {movies}/>
+        <MovieContainer categories={categories} filterObject={filterObject}/>
+        </>
+        
+      )}
+      
     </section>
   )
 }

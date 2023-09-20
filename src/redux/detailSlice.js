@@ -33,7 +33,7 @@ const detailSlice = createSlice({
     reducers:{},
     extraReducers: (builder) => {
         builder.addCase(fetchDetailMovie.fulfilled, (state, action) => {
-            state.loading = false;
+            state.loading = true;
             state.error = '';
             state.value = {
                 id: action.payload.id,
@@ -47,17 +47,17 @@ const detailSlice = createSlice({
                 rating: action.payload.rating,
                 image: action.payload.image,
                 summary: action.payload.summary,
+                favorite: false,
             }
         });
         builder.addCase(fetchDetailSeason.fulfilled, (state, action) => {
-            state.loading = false;
+            state.loading = true;
             state.error = '';
             state.seasons = action.payload.map((movie) => ({
                 id: movie.id,
                 number: movie.number,
                 episodes: movie.episodeOrder,
             }))
-            console.log(state.seasons)
         })
 
     }
