@@ -20,13 +20,11 @@ const Detail = () => {
   const allMovies = useSelector((state) => state.movie.value);
   const loading = useSelector((state) => state.detail.loading);
   const detailMovie = useSelector((state) => state.detail.value);
-  const checkMovie = allMovies.filter((m) => m.id === detailMovie.id);
   const detailSeason = useSelector((state) => state.detail.seasons);
   const detailCasts = useSelector((state) => state.cast.casts);
   const defaultEpisode = detailSeason.filter((season) => season.number === 1 )
   const [episodes, setEpisodes] = useState(defaultEpisode.episodes);
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(checkMovie[0].favorite);
 
   useEffect(() => {
     if (
@@ -48,7 +46,6 @@ const Detail = () => {
       dispatch(setFavorite(id))
     }
   }
-
 
   const handleEpisode = (id) => {
     setShowCast(false);
@@ -97,9 +94,9 @@ const Detail = () => {
               </li>
             </ul>
             <div className="button-container mt-8 flex">
-              <button className="me-4 border px-3 py-1 flex items-center"><BsPlay className="me-2"/>Play</button>
-              <button className="me-4 border px-3 py-1 flex items-center"><GoDownload className="me-2"/>Download</button>
-              <button className="me-4 border px-3 py-1 flex items-center" onClick={handleClick}><BsStar className="me-2"/>Favorite</button>
+              <button className="me-4 border px-3 py-1 flex items-center neon-button"><BsPlay className="me-2"/>Play</button>
+              <button className="me-4 border px-3 py-1 flex items-center neon-button"><GoDownload className="me-2"/>Download</button>
+              <button className="me-4 border px-3 py-1 flex items-center neon-button" onClick={handleClick}><BsStar className="me-2"/>Favorite</button>
             </div>
             <p className=" leading-wider text-white/80 mt-6 w-[80%]">
               {showMore

@@ -12,8 +12,8 @@ const HeroSlide = () => {
             <h2 className='text-6xl mt-5 font-semibold'>Star Wars</h2>
             <p className='text-sm mt-8 w-[60%]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aspernatur modi fugiat distinctio est totam consectetur natus debitis neque unde quo optio, maxime quas at et ex aut voluptates quidem.</p>
             <div className="button-container flex mt-6">
-                <button className='base-button'>Watch Now</button>
-                <button className='base-button'>Details</button>
+                <button className='neon-button border-r  me-4'>Watch Now</button>
+                <button className='neon-button me-4'>Details</button>
             </div>
         </div>
         <Navbar/>

@@ -11,7 +11,7 @@ const Casts = ({ casts }) => {
             alt=""
             className="rounded-md overflow-hidden cast-img"
           />
-          <button className="mt-5 cast-button font-semibold text-lg p-2 w-[100%] rounded-sm text-center hover:text-red-500 hover:border-rose-400 text-white border">
+          <button className="mt-5 neon-button">
             {cast.name}
           </button>
         </div>
