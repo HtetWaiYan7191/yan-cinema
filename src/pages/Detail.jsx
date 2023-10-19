@@ -118,7 +118,7 @@ const Detail = () => {
       ) }
     </div>
     <div className="w-[100%] mx-auto">
-      <div className="detail-seasonn-container mt-20  w-[80%] mx-auto  flex justify-between">
+      <div className="detail-season-container mt-20  w-[80%] min-h-[10vh] mx-auto  flex justify-between">
         {detailSeason.length !== 0 && (
           <ul className="w-[70%]">
             {detailSeason.map((season, index) => (

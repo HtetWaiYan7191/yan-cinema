@@ -1,3 +1,9 @@
+
+.cast-img {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
 .cast-img:hover {
     transform: scale(0.9);
     transition: transform 0.3s ease; /* Optional: Add a smooth transition effect */
